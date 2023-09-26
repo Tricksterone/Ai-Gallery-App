@@ -1,10 +1,4 @@
-import {
-  ImageBackground,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { ImageBackground, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function WelcomeScreen() {
@@ -16,15 +10,17 @@ export default function WelcomeScreen() {
         resizeMode="cover"
       >
         <View style={styles.contentcontainer}>
-          <Text style={styles.title}>WELCOME TO THE GALLERY FOR AI ART </Text>
+          <Text style={styles.description}>
+            WELCOME TO THE GALLERY FOR AI ART
+          </Text>
         </View>
         <View style={styles.buttonContainer}>
-          <Text style={styles.title}>
+          <Text style={styles.description}>
             Here you can view art created from AI or create your own!
           </Text>
-          <TouchableOpacity style={styles.button}>
+          {/* <TouchableOpacity style={styles.button}>
             <Text style={styles.buttonText}>Get Started!</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
       </ImageBackground>
     </SafeAreaView>
@@ -43,7 +39,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
   },
-  title: {
+  description: {
     fontSize: 25,
     padding: 15,
     color: "rgba(255, 60, 147, 1)",
