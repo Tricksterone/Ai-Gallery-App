@@ -10,6 +10,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 export default function WelcomeScreen() {
   const handleButtonPress = () => {
     console.log("Button pressed");
+    // navigation.navigate("Home");
   };
 
   return (
