@@ -1,21 +1,20 @@
 import {
-  View,
-  Text,
   ImageBackground,
   StyleSheet,
+  Text,
   TouchableOpacity,
+  View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function WelcomeScreen() {
-  const handleButtonPress = () => {
-    console.log("Button pressed");
-    // navigation.navigate("Home");
-  };
-
   return (
     <SafeAreaView style={styles.container}>
-      <ImageBackground source={require("../images/Hatter.png")}>
+      <ImageBackground
+        source={require("../images/Hatter.png")}
+        style={styles.imageBackground}
+        resizeMode="cover"
+      >
         <View style={styles.contentcontainer}>
           <Text style={styles.title}>WELCOME TO THE GALLERY FOR AI ART </Text>
         </View>
@@ -23,7 +22,7 @@ export default function WelcomeScreen() {
           <Text style={styles.title}>
             Here you can view art created from AI or create your own!
           </Text>
-          <TouchableOpacity style={styles.button} onPress={handleButtonPress}>
+          <TouchableOpacity style={styles.button}>
             <Text style={styles.buttonText}>Get Started!</Text>
           </TouchableOpacity>
         </View>
@@ -34,6 +33,9 @@ export default function WelcomeScreen() {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+  },
+  imageBackground: {
     flex: 1,
   },
   contentcontainer: {
