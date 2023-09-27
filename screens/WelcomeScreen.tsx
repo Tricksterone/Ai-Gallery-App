@@ -1,7 +1,17 @@
-import { ImageBackground, StyleSheet, Text, View } from "react-native";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import {
+  ImageBackground,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { RootStackParamList } from "../App";
 
-export default function WelcomeScreen() {
+export type Props = NativeStackScreenProps<RootStackParamList, "Welcome">;
+
+export default function WelcomeScreen({ navigation }: Props) {
   return (
     <SafeAreaView style={styles.container}>
       <ImageBackground
@@ -18,9 +28,12 @@ export default function WelcomeScreen() {
           <Text style={styles.description}>
             Here you can view art created from AI or create your own!
           </Text>
-          {/* <TouchableOpacity style={styles.button}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.push("Home")}
+          >
             <Text style={styles.buttonText}>Get Started!</Text>
-          </TouchableOpacity> */}
+          </TouchableOpacity>
         </View>
       </ImageBackground>
     </SafeAreaView>
