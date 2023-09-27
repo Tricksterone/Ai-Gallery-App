@@ -20,7 +20,10 @@ export default function App() {
         <StatusBar style="auto" />
         <Stack.Navigator
           initialRouteName="Welcome"
-          screenOptions={{ headerStyle: { backgroundColor: "#d7d5c9" } }}
+          screenOptions={{
+            headerStyle: { backgroundColor: "#d7d5c9" },
+            headerTitleAlign: "center",
+          }}
         >
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Welcome" component={WelcomeScreen} />
