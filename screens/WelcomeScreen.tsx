@@ -15,9 +15,10 @@ export default function WelcomeScreen({ navigation }: Props) {
   return (
     <SafeAreaView style={styles.container}>
       <ImageBackground
-        source={require("../images/Hatter.png")}
+        source={require("../images/Cheshire.png")}
         style={styles.imageBackground}
         resizeMode="cover"
+        resizeMethod="resize"
       >
         <View style={styles.contentcontainer}>
           <Text style={styles.description}>
