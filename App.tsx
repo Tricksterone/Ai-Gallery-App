@@ -16,11 +16,11 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <StatusBar style="auto" />
+        <StatusBar style="light" />
         <Stack.Navigator
           initialRouteName="Welcome"
           screenOptions={{
-            headerStyle: { backgroundColor: "#d7d5c9" },
+            headerStyle: { backgroundColor: "rgba(119, 52, 219, 0.9)" },
             headerTitleAlign: "center",
           }}
         >
