@@ -69,7 +69,9 @@ export default function SnapCarousel({ title, images }: Props) {
               },
             ]}
           >
-            <Text style={{ fontSize: 30, color: "white" }}>{item.title}</Text>
+            <Text style={{ fontSize: 30, color: "white", marginBottom: 4 }}>
+              {item.title}
+            </Text>
             <Image source={item.image} style={{ width: 400, height: 300 }} />
           </View>
         ))}
@@ -84,6 +86,7 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   carouselTitle: {
+    marginLeft: 10,
     color: "white",
     fontSize: 20,
     fontWeight: "bold",
