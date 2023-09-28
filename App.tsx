@@ -2,12 +2,14 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import DetailsScreen from "./screens/DetailsScreen";
 import HomeScreen from "./screens/HomeScreen";
 import WelcomeScreen from "./screens/WelcomeScreen";
 
 export type RootStackParamList = {
   Home: undefined;
   Welcome: undefined;
+  Details: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -16,13 +18,19 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <StatusBar style="auto" />
+        <StatusBar style="light" />
         <Stack.Navigator
-          initialRouteName="Home"
-          screenOptions={{ headerStyle: { backgroundColor: "#d7d5c9" } }}
+          initialRouteName="Welcome"
+          screenOptions={{
+            headerStyle: { backgroundColor: "#923cb5" },
+            headerTitleStyle: { color: "white" },
+            headerTintColor: "white",
+            headerTitleAlign: "center",
+          }}
         >
-          <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Welcome" component={WelcomeScreen} />
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Details" component={DetailsScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

@@ -1,76 +1,112 @@
-import * as React from "react";
-import { Text, View } from "react-native";
-import Carousel from "react-native-snap-carousel";
+import React, { useState } from "react";
+import {
+  Dimensions,
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 
-interface State {
-  activeIndex: number;
-  carouselItems: {
-    title: string;
-    text: string;
-  }[];
-}
+export type CarouselData = {
+  title: string;
+  images: CarouselImage[];
+};
 
-export default class SnapCarousel extends React.Component<{}, State> {
-  constructor(props: {}) {
-    super(props);
-    this.state = {
-      activeIndex: 0,
-      carouselItems: [
-        {
-          title: "Item 1",
-          text: "This is space for text",
-        },
-        {
-          title: "Item 2",
-          text: "This is space for text",
-        },
-        {
-          title: "Item 3",
-          text: "This is space for text",
-        },
-        {
-          title: "Item 4",
-          text: "This is space for text",
-        },
-      ],
-    };
-  }
-  _renderItem({ item }: { item: { title: string; text: string } }) {
+export type CarouselImage = {
+  id: number;
+  title: string;
+  text: string;
+  image: any;
+};
+
+type Props = CarouselData;
+
+export default function SnapCarousel({ title, images }: Props) {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const { width: screenWidth } = Dimensions.get("screen");
+
+  const handleScroll = (event: any) => {
+    const contentOffsetX = event.nativeEvent.contentOffset.x;
+    const currentIndex = Math.round(contentOffsetX / 400);
+    setActiveIndex(currentIndex);
+  };
+
+  const renderPagination = () => {
     return (
-      <View
-        style={{
-          backgroundColor: "lightblue",
-          borderRadius: 5,
-          height: 250,
-          padding: 20,
-          marginLeft: 25,
-          marginRight: 25,
-        }}
-      >
-        <Text style={{ fontSize: 30 }}>{item.title}</Text>
-        <Text>{item.text}</Text>
+      <View style={styles.paginationContainer}>
+        {images.map((_, index) => (
+          <View
+            key={index}
+            style={[
+              styles.dot,
+              {
+                backgroundColor: activeIndex === index ? "white" : "lightgray",
+              },
+            ]}
+          />
+        ))}
       </View>
     );
-  }
-  render() {
-    return (
-      <Carousel
-        layout={"default"}
-        data={this.state.carouselItems}
-        sliderWidth={400}
-        itemWidth={350}
-        renderItem={this._renderItem}
-      />
-    );
-  }
+  };
+
+  return (
+    <View style={styles.carouselContainer}>
+      <Text style={styles.carouselTitle}>{title}</Text>
+      <ScrollView
+        horizontal
+        pagingEnabled
+        onScroll={handleScroll}
+        showsHorizontalScrollIndicator={false}
+      >
+        {images.map((item, index) => (
+          <View
+            key={index}
+            style={[
+              styles.carouselItem,
+              {
+                width: screenWidth,
+              },
+            ]}
+          >
+            <Text style={{ fontSize: 30, color: "white", marginBottom: 4 }}>
+              {item.title}
+            </Text>
+            <Image source={item.image} style={{ width: 400, height: 300 }} />
+          </View>
+        ))}
+      </ScrollView>
+      {renderPagination()}
+    </View>
+  );
 }
 
-{
-  /* {images.map((item, index) => (
-    <Image
-      key={index}
-      source={{ uri: item }}
-      style={{ width: 200, height: 200 }}
-    />
-  ))} */
-}
+const styles = StyleSheet.create({
+  carouselContainer: {
+    marginBottom: 2,
+  },
+  carouselTitle: {
+    marginLeft: 10,
+    color: "white",
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 2,
+  },
+  paginationContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 10,
+  },
+  dot: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    margin: 5,
+  },
+  carouselItem: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
