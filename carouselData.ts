@@ -72,4 +72,16 @@ export const sciFiImages: CarouselImage[] = [
     text: "This is space for text",
     image: require("./images/Diffusion.png"),
   },
+  {
+    id: 12,
+    title: "Item 12",
+    text: "This is space for text",
+    image: require("./images/EdgeRunner.png"),
+  },
+  {
+    id: 13,
+    title: "Item 13",
+    text: "This is space for text",
+    image: require("./images/NightCity.png"),
+  },
 ];

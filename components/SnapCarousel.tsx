@@ -41,8 +41,7 @@ export default function SnapCarousel({ title, images }: Props) {
             style={[
               styles.dot,
               {
-                backgroundColor:
-                  activeIndex === index ? "darkgray" : "lightgray",
+                backgroundColor: activeIndex === index ? "white" : "lightgray",
               },
             ]}
           />
@@ -52,7 +51,8 @@ export default function SnapCarousel({ title, images }: Props) {
   };
 
   return (
-    <View>
+    <View style={styles.carouselContainer}>
+      <Text style={styles.carouselTitle}>{title}</Text>
       <ScrollView
         horizontal
         pagingEnabled
@@ -69,10 +69,8 @@ export default function SnapCarousel({ title, images }: Props) {
               },
             ]}
           >
-            <Text>{item.id}</Text>
-            <Text style={{ fontSize: 30 }}>{item.title}</Text>
-            <Image source={item.image} style={{ width: 400, height: 250 }} />
-            <Text>{item.text}</Text>
+            <Text style={{ fontSize: 30, color: "white" }}>{item.title}</Text>
+            <Image source={item.image} style={{ width: 400, height: 300 }} />
           </View>
         ))}
       </ScrollView>
@@ -82,6 +80,15 @@ export default function SnapCarousel({ title, images }: Props) {
 }
 
 const styles = StyleSheet.create({
+  carouselContainer: {
+    marginBottom: 2,
+  },
+  carouselTitle: {
+    color: "white",
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 2,
+  },
   paginationContainer: {
     flexDirection: "row",
     justifyContent: "center",
