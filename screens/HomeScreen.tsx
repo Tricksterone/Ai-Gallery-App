@@ -16,8 +16,9 @@ export default function HomeScreen({ navigation }: Props) {
         locations={[0, 1]}
         style={styles.gradient}
       >
-        {carouselDataList.map((carouselData) => (
+        {carouselDataList.map((carouselData, index) => (
           <SnapCarousel
+            key={index}
             title={carouselData.title}
             images={carouselData.images}
           />
