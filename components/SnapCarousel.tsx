@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import {
   Dimensions,
   Image,
+  NativeScrollEvent,
+  NativeSyntheticEvent,
   ScrollView,
   StyleSheet,
   Text,
+  TouchableOpacity,
   View,
 } from "react-native";
 
@@ -20,13 +23,16 @@ export type CarouselImage = {
   image: any;
 };
 
-type Props = CarouselData;
+type Props = {
+  carouselData: CarouselData;
+  onPress: (image: CarouselImage) => void;
+};
 
-export default function SnapCarousel({ title, images }: Props) {
+export default function SnapCarousel({ carouselData, onPress }: Props) {
   const [activeIndex, setActiveIndex] = useState(0);
   const { width: screenWidth } = Dimensions.get("screen");
 
-  const handleScroll = (event: any) => {
+  const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const contentOffsetX = event.nativeEvent.contentOffset.x;
     const currentIndex = Math.round(contentOffsetX / 400);
     setActiveIndex(currentIndex);
@@ -35,7 +41,7 @@ export default function SnapCarousel({ title, images }: Props) {
   const renderPagination = () => {
     return (
       <View style={styles.paginationContainer}>
-        {images.map((_, index) => (
+        {carouselData.images.map((_, index) => (
           <View
             key={index}
             style={[
@@ -52,15 +58,15 @@ export default function SnapCarousel({ title, images }: Props) {
 
   return (
     <View style={styles.carouselContainer}>
-      <Text style={styles.carouselTitle}>{title}</Text>
+      <Text style={styles.carouselTitle}>{carouselData.title}</Text>
       <ScrollView
         horizontal
         pagingEnabled
         onScroll={handleScroll}
         showsHorizontalScrollIndicator={false}
       >
-        {images.map((item, index) => (
-          <View
+        {carouselData.images.map((item, index) => (
+          <TouchableOpacity
             key={index}
             style={[
               styles.carouselItem,
@@ -68,12 +74,13 @@ export default function SnapCarousel({ title, images }: Props) {
                 width: screenWidth,
               },
             ]}
+            onPress={() => onPress(item)}
           >
             <Text style={{ fontSize: 30, color: "white", marginBottom: 4 }}>
               {item.title}
             </Text>
             <Image source={item.image} style={{ width: 400, height: 300 }} />
-          </View>
+          </TouchableOpacity>
         ))}
       </ScrollView>
       {renderPagination()}

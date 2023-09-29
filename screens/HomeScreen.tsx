@@ -4,11 +4,17 @@ import React from "react";
 import { ScrollView, StyleSheet } from "react-native";
 import { RootStackParamList } from "../App";
 import { fantasyImages, horrorImages, sciFiImages } from "../carouselData";
-import SnapCarousel, { CarouselData } from "../components/SnapCarousel";
+import SnapCarousel, {
+  CarouselData,
+  CarouselImage,
+} from "../components/SnapCarousel";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Home">;
 
 export default function HomeScreen({ navigation }: Props) {
+  const handleImagePress = (image: CarouselImage) => {
+    navigation.push("Details", { image });
+  };
   return (
     <ScrollView style={styles.container}>
       <LinearGradient
@@ -16,11 +22,11 @@ export default function HomeScreen({ navigation }: Props) {
         locations={[0, 1]}
         style={styles.gradient}
       >
-        {carouselDataList.map((carouselData, index) => (
+        {carouselDataList.map((carouselData) => (
           <SnapCarousel
-            key={index}
-            title={carouselData.title}
-            images={carouselData.images}
+            key={carouselData.title}
+            carouselData={carouselData}
+            onPress={handleImagePress}
           />
         ))}
       </LinearGradient>
