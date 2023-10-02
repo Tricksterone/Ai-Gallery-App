@@ -15,6 +15,7 @@ export default function HomeScreen({ navigation }: Props) {
   const handleImagePress = (image: CarouselImage) => {
     navigation.push("Details", { image });
   };
+
   return (
     <ScrollView style={styles.container}>
       <LinearGradient
