@@ -1,0 +1,21 @@
+
+Todo:
+  ☐ CSS:a CreateArtScreen.
+  ☐ implementera en [isLoading, setIsLoading]
+  ☐ styla/ tweaka CreateArtScreen
+
+  ☐ Sätta in Text i Details Sidan!.
+  ☐ Sätta in Share Knappen för att ladda/dela Bilden som skapats!.
+  ☐ (om tid finns göra om Share knappen till en icon)
+
+
+  DALLE Bilder
+
+bild 1:
+https://oaidalleapiprodscus.blob.core.windows.net/private/org-jqANIFByqFUQNY86rEuDsFzW/user-frcYgktcB5HCzs2FDqkkypCq/img-J2vojLBnYvP4NJRSiyuWtmHe.png?st=2023-10-02T12%3A28%3A44Z&se=2023-10-02T14%3A28%3A44Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-10-02T11%3A57%3A35Z&ske=2023-10-03T11%3A57%3A35Z&sks=b&skv=2021-08-06&sig=2LVbfZc8Qi9ElNR8kEvKQljGogT3/UOH8%2B7k5knko0M%3D
+
+bild 2.
+https://oaidalleapiprodscus.blob.core.windows.net/private/org-jqANIFByqFUQNY86rEuDsFzW/user-frcYgktcB5HCzs2FDqkkypCq/img-bWkXQzMBAot0TLZRx7lt0mRK.png?st=2023-10-02T12%3A24%3A58Z&se=2023-10-02T14%3A24%3A58Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-10-01T19%3A53%3A44Z&ske=2023-10-02T19%3A53%3A44Z&sks=b&skv=2021-08-06&sig=GXt4Ss%2BfVKn5D1DRgUJvO9QaCSuVCrMJ1XAz9MZy29s%3D
+
+bild 3.
+https://oaidalleapiprodscus.blob.core.windows.net/private/org-jqANIFByqFUQNY86rEuDsFzW/user-frcYgktcB5HCzs2FDqkkypCq/img-jFznNC4swrx7uVs6nNk3x0kB.png?st=2023-10-02T12%3A17%3A02Z&se=2023-10-02T14%3A17%3A02Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-10-02T00%3A29%3A21Z&ske=2023-10-03T00%3A29%3A21Z&sks=b&skv=2021-08-06&sig=Ma%2BYUBhYs5sfF/xJesZRfBdzW3LcERd3mOkDhwRWYnM%3D

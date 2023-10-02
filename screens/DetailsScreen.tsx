@@ -19,7 +19,7 @@ export default function DetailsScreen({ route }: Props) {
         <Image source={image.image} style={{ width: 400, height: 300 }} />
         <Text>{image.title}</Text>
         <Text>{image.text}</Text>
-        <ShareButton image={image} />
+        {/* <ShareButton image={image} /> */}
       </LinearGradient>
     </ScrollView>
   );

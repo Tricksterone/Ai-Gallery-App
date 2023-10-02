@@ -1,15 +1,44 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { useState } from "react";
-import { StyleSheet, TextInput, View } from "react-native";
+import { Button, Image, StyleSheet, TextInput, View } from "react-native";
 import { RootStackParamList } from "../App";
 
-const Authroization = "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 ";
 export type Props = NativeStackScreenProps<RootStackParamList, "Create">;
 
 export default function CreateArt() {
   const [text, setText] = useState("");
+  const [image, setImage] = useState();
+
+  async function createImageFromDALLE() {
+    const OPENAI_API_KEY = process.env.EXPO_PUBLIC_API_KEY;
+
+    const data = {
+      prompt: text,
+    };
+
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${OPENAI_API_KEY}`,
+    };
+
+    fetch("https://api.openai.com/v1/images/generations", {
+      method: "POST",
+      headers: headers,
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((responseData) => {
+        console.log(responseData);
+        setImage(responseData.data[0].url);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
   return (
     <View style={styles.container}>
+      {image && <Image source={{ uri: image }} style={styles.image} />}
       <TextInput
         style={styles.input}
         placeholder="Enter prompt here"
@@ -18,6 +47,7 @@ export default function CreateArt() {
         multiline={true}
         textAlignVertical="top"
       />
+      <Button title="Send Prompt" onPress={createImageFromDALLE} />
     </View>
   );
 }
@@ -33,5 +63,9 @@ const styles = StyleSheet.create({
     backgroundColor: "lightgray",
     borderRadius: 5,
     paddingHorizontal: 10,
+  },
+  image: {
+    width: 300,
+    height: 200,
   },
 });
