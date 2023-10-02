@@ -1,7 +1,7 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
-import { ScrollView, StyleSheet } from "react-native";
+import { Button, ScrollView, StyleSheet } from "react-native";
 import { RootStackParamList } from "../App";
 import { fantasyImages, horrorImages, sciFiImages } from "../carouselData";
 import SnapCarousel, {
@@ -30,6 +30,12 @@ export default function HomeScreen({ navigation }: Props) {
             onPress={handleImagePress}
           />
         ))}
+        <Button
+          title="Create Art"
+          onPress={() => {
+            navigation.navigate("Create"); // Navigate to the "Create" screen
+          }}
+        />
       </LinearGradient>
     </ScrollView>
   );
