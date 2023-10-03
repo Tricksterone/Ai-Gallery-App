@@ -15,9 +15,12 @@ export default function DetailsScreen({ route }: Props) {
         locations={[0, 1]}
         style={styles.gradient}
       >
-        <Image source={image.image} style={{ width: 400, height: 300 }} />
-        <Text>{image.title}</Text>
-        <Text>{image.text}</Text>
+        <Image
+          source={image.image}
+          style={{ width: 400, height: 300, marginTop: 10, borderRadius: 5 }}
+        />
+        <Text style={styles.text}>{image.title}</Text>
+        <Text style={styles.promptText}>{image.text}</Text>
       </LinearGradient>
     </ScrollView>
   );
@@ -28,11 +31,21 @@ const styles = StyleSheet.create({
   },
   gradient: {
     flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
   text: {
     color: "white",
     fontSize: 24,
     textAlign: "center",
     marginTop: 20,
+  },
+  promptText: {
+    color: "white",
+    fontSize: 18,
+    textAlign: "center",
+    marginTop: 20,
+    lineHeight: 24,
+    paddingHorizontal: 16,
   },
 });
