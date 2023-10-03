@@ -1,7 +1,7 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
-import { Button, ScrollView, StyleSheet } from "react-native";
+import { ScrollView, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { RootStackParamList } from "../App";
 import { fantasyImages, horrorImages, sciFiImages } from "../carouselData";
 import SnapCarousel, {
@@ -30,12 +30,17 @@ export default function HomeScreen({ navigation }: Props) {
             onPress={handleImagePress}
           />
         ))}
-        <Button
-          title="Create Art"
+        <TouchableOpacity
+          style={[
+            styles.buttonContainer,
+            { backgroundColor: "rgb(105, 5, 134)" },
+          ]}
           onPress={() => {
             navigation.navigate("Create"); // Navigate to the "Create" screen
           }}
-        />
+        >
+          <Text style={styles.buttonText}>Create Art</Text>
+        </TouchableOpacity>
       </LinearGradient>
     </ScrollView>
   );
@@ -53,6 +58,17 @@ const styles = StyleSheet.create({
     fontSize: 24,
     textAlign: "center",
     marginTop: 20,
+  },
+  buttonContainer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 10,
+    borderRadius: 25,
+  },
+  buttonText: {
+    fontSize: 18,
+    color: "white",
   },
 });
 
