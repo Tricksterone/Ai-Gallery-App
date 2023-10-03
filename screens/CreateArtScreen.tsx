@@ -3,6 +3,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { useState } from "react";
 import {
   Image,
+  Keyboard,
   StyleSheet,
   Text,
   TextInput,
@@ -21,6 +22,7 @@ export default function CreateArt() {
   const [image, setImage] = useState("");
 
   async function createImageFromDALLE() {
+    Keyboard.dismiss();
     setIsLoading(true); // Set isLoading to true when the request starts
 
     const OPENAI_API_KEY = process.env.EXPO_PUBLIC_API_KEY;
