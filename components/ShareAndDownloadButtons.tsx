@@ -5,7 +5,11 @@ import * as Sharing from "expo-sharing";
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-export default function ShareButton({ imageURL }: { imageURL: string }) {
+export default function ShareAndDownloadButtons({
+  imageURL,
+}: {
+  imageURL: string;
+}) {
   const [state, setState] = useState("");
   const fileUri = FileSystem.cacheDirectory + "tmp.jpg";
 

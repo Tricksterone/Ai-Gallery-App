@@ -12,7 +12,7 @@ import {
 } from "react-native";
 import Spinner from "react-native-loading-spinner-overlay";
 import { RootStackParamList } from "../App";
-import ShareButton from "../components/ShareButton";
+import ShareButton from "../components/ShareAndDownloadButtons";
 
 export type Props = NativeStackScreenProps<RootStackParamList, "Create">;
 
