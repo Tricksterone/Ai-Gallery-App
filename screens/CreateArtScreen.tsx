@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import Spinner from "react-native-loading-spinner-overlay";
 import { RootStackParamList } from "../App";
 import ShareButton from "../components/ShareButton";
 
@@ -85,6 +86,11 @@ export default function CreateArt() {
           </TouchableOpacity>
         </View>
       </LinearGradient>
+      <Spinner
+        visible={isLoading}
+        textContent="Loading..."
+        textStyle={{ color: "white" }}
+      />
     </View>
   );
 }
