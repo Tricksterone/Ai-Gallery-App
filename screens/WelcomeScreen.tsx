@@ -6,14 +6,13 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { RootStackParamList } from "../App";
 
 export type Props = NativeStackScreenProps<RootStackParamList, "Welcome">;
 
 export default function WelcomeScreen({ navigation }: Props) {
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <ImageBackground
         source={require("../images/Cheshire.png")}
         style={styles.imageBackground}
@@ -37,7 +36,7 @@ export default function WelcomeScreen({ navigation }: Props) {
           </TouchableOpacity>
         </View>
       </ImageBackground>
-    </SafeAreaView>
+    </View>
   );
 }
 

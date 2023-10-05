@@ -62,35 +62,38 @@ export default function CreateArt() {
         locations={[0, 1]}
         style={styles.gradient}
       >
-        {image && <Image source={{ uri: image }} style={styles.image} />}
-        {/* Render the ShareButton component */}
-        {createdImageURL && <ShareButton imageURL={createdImageURL} />}
-        <View style={styles.inputcontainer}>
-          <TextInput
-            style={styles.input}
-            placeholderTextColor={"white"}
-            placeholder="Enter prompt here"
-            onChangeText={(prompt) => setText(prompt)}
-            value={text}
-            multiline={true}
-            textAlignVertical="top"
+        {isLoading ? (
+          <Spinner
+            visible
+            textContent="Creating your art..."
+            textStyle={{ color: "white" }}
           />
-          <TouchableOpacity
-            style={styles.buttonContainer}
-            onPress={createImageFromDALLE}
-            disabled={isLoading}
-          >
-            <Text style={styles.buttonText}>
-              {isLoading ? "Creating Art..." : "Send Prompt"}
-            </Text>
-          </TouchableOpacity>
-        </View>
+        ) : (
+          <>
+            {image && <Image source={{ uri: image }} style={styles.image} />}
+            {/* Render the ShareButton component */}
+            {createdImageURL && <ShareButton imageURL={createdImageURL} />}
+            <View style={styles.inputcontainer}>
+              <TextInput
+                style={styles.input}
+                placeholderTextColor={"white"}
+                placeholder="Enter prompt here"
+                onChangeText={(prompt) => setText(prompt)}
+                value={text}
+                multiline={true}
+                textAlignVertical="top"
+              />
+              <TouchableOpacity
+                style={styles.buttonContainer}
+                onPress={createImageFromDALLE}
+                disabled={isLoading}
+              >
+                <Text style={styles.buttonText}>Send Prompt</Text>
+              </TouchableOpacity>
+            </View>
+          </>
+        )}
       </LinearGradient>
-      <Spinner
-        visible={isLoading}
-        textContent="Loading..."
-        textStyle={{ color: "white" }}
-      />
     </View>
   );
 }
