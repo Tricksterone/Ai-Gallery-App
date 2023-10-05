@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   button: {
-    backgroundColor: "rgba(119, 52, 219, 0.9)",
+    backgroundColor: "rgb(105, 5, 134)",
     width: 150,
     height: 40,
     borderRadius: 25,

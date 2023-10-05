@@ -84,7 +84,7 @@ export default function ShareAndDownloadButtons({
         <TouchableOpacity
           style={[
             styles.buttonContainer,
-            { backgroundColor: "rgb(55, 41, 134)" },
+            { backgroundColor: "rgb(105, 5, 134)" },
           ]}
           onPress={handleDownload}
         >
@@ -93,7 +93,7 @@ export default function ShareAndDownloadButtons({
         <TouchableOpacity
           style={[
             styles.buttonContainer,
-            { backgroundColor: "rgb(55, 41, 134)" },
+            { backgroundColor: "rgb(105, 5, 134)" },
           ]}
           onPress={handleShare}
         >
